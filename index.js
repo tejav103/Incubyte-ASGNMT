@@ -8,11 +8,9 @@ const add = (str) => {
         delimetter = str.charAt(2)
         str = str.slice(3)
     }
-    console.log(delimetter)
-    str=str.replace('\n', delimetter)
-    console.log(str)
+    str=str.replace("\n", delimetter)
+    str=str.replace("\\n", delimetter) // To handle an edge case if the string passed has \n chars instead of new line
     const numbers = str.split(delimetter).map(char => Number(char))
-    console.log(numbers)
     const negativeNumebrs = numbers.filter(number => number < 0)
     if(negativeNumebrs.length){
         throw new Error('negative numbers not allowed '+negativeNumebrs.join(','))
